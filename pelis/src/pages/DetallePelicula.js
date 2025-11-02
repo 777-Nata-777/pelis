@@ -25,3 +25,38 @@ function DetallePelicula() {
       <NavLink to="/" className="btn-volver">
         ← Volver al Inicio
       </NavLink>
+
+      <div className="detalle-pelicula">
+        <div className="pelicula-header">
+          <div className="pelicula-icon-grande">🎬</div>
+          <h1>{pelicula.titulo}</h1>
+        </div>
+
+        <div className="pelicula-info">
+          <div className="info-item">
+            <strong>Género:</strong> {pelicula.genero}
+          </div>
+          
+          <div className="info-item">
+            <strong>Año:</strong> {pelicula.año}
+          </div>
+          
+          {pelicula.director && (
+            <div className="info-item">
+              <strong>Director:</strong> {pelicula.director}
+            </div>
+          )}
+          
+          {pelicula.descripcion && (
+            <div className="info-item descripcion">
+              <strong>Descripción:</strong>
+              <p>{pelicula.descripcion}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default DetallePelicula;
