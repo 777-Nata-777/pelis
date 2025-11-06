@@ -1,50 +1,46 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import './Index.css';
 
-function Index() {
-    const [peliculas] = useState([
-        {
-            id: 1,
-            titulo: "El Padrino",
-            genero: "Drama",
-            año: 1972,
-            descripcion: "Una épica historia de la familia Corleone."
-        },
-        {
-            id: 2,
-            titulo: "Pulp Fiction",
-            genero: "Crimen",
-            año: 1994,
-            descripcion: "Historias interconectadas en el mundo del crimen."
-        }
-    ]);
+function Index({ peliculas, onVerDetalle, onAgregar }) {
+return (
+    <div className="container">
+    <header>
+        <h1>🎬 Catálogo de Películas</h1>
+        <button onClick={onAgregar} className="btn-agregar">
+        + Agregar Película
+        </button>
+    </header>
 
-    return (
-        <div className="container">
-            <header>
-                <h1>Catálogo de Películas</h1>
-                <NavLink to="/agregar" className="btn-agregar">
-                    + Agregar Película
-                </NavLink>
-            </header>
-
-            <div className="peliculas-grid">
-                {peliculas.map((pelicula) => (
-                    <NavLink 
-                        to={`/pelicula/${pelicula.id}`}
-                        key={pelicula.id}
-                        className="pelicula-card"
-                    >
-                        <div className="pelicula-icon">🎥</div>
-                        <h3>{pelicula.titulo}</h3>
-                        <p className="genero">{pelicula.genero}</p>
-                        <p className="año">Año: {pelicula.año}</p>
-                    </NavLink>
-                ))}
-            </div>
+    {peliculas.length === 0 ? (
+        <div className="empty-state">
+        <div className="empty-icon">🎥</div>
+        <h2>No hay películas aún</h2>
+        <p>Comienza agregando tu primera película al catálogo</p>
         </div>
-    );
+    ) : (
+        <div className="peliculas-grid">
+        {peliculas.map((pelicula) => (
+            <div 
+            key={pelicula.id}
+            className="pelicula-card"
+            onClick={() => onVerDetalle(pelicula)}
+            >
+            {pelicula.imagen ? (
+                <div className="pelicula-portada">
+                <img src={pelicula.imagen} alt={pelicula.titulo} />
+                </div>
+            ) : (
+                <div className="pelicula-icon">🎥</div>
+            )}
+            <h3>{pelicula.titulo}</h3>
+            <p className="genero">{pelicula.genero}</p>
+            <p className="año">Año: {pelicula.año}</p>
+            </div>
+        ))}
+        </div>
+    )}
+    </div>
+);
 }
 
 export default Index;
