@@ -16,11 +16,9 @@ if (!pelicula) {
     );
 }
 
-// Función para convertir URL de YouTube a formato embed
 const getYouTubeEmbedUrl = (url) => {
     if (!url) return null;
     
-    // Manejar diferentes formatos de URLs de YouTube
     let videoId = null;
     
     if (url.includes('youtube.com/watch?v=')) {
