@@ -1,50 +1,136 @@
+.btn-volver {
+    background-color: #7f8c8d;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-volver:hover {
+    background-color: #6c7a7d;
+    transform: translateY(-2px);
+}
+
 .detalle-pelicula {
-    max-width: 800px;
+    max-width: 900px;
     margin: 30px auto;
-    background-color: #f9f9f9;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .pelicula-header {
     text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #ddd;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #ecf0f1;
 }
 
 .pelicula-icon-grande {
-    font-size: 80px;
+    font-size: 90px;
     margin-bottom: 20px;
 }
 
 .pelicula-header h1 {
-    color: #333;
+    color: #2c3e50;
     margin: 0;
+    font-size: 2.2em;
 }
 
 .pelicula-info {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .info-item {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #4CAF50;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #27ae60;
 }
 
 .info-item strong {
-    color: #4CAF50;
+    color: #27ae60;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.descripcion {
+    grid-column: 1 / -1;
 }
 
 .descripcion p {
-    margin: 10px 0 0 0;
-    line-height: 1.6;
+    margin: 12px 0 0 0;
+    line-height: 1.7;
     color: #555;
+}
+
+.trailer {
+    grid-column: 1 / -1;
+}
+
+.trailer-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 10px 20px;
+    background-color: #ecf7ff;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.trailer-link:hover {
+    background-color: #d6eeff;
+    transform: translateX(5px);
+}
+
+.not-found {
+    text-align: center;
+    padding: 80px 20px;
+    color: #7f8c8d;
+}
+
+.pelicula-portada-grande {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.pelicula-portada-grande img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    margin-top: 15px;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }
