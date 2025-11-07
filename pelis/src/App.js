@@ -5,7 +5,7 @@ import DetallePelicula from './pages/DetallePelicula';
 
 function App() {
   const [peliculas, setPeliculas] = useState([]);
-  const [vista, setVista] = useState('lista'); // 'lista', 'agregar', 'detalle'
+  const [vista, setVista] = useState('lista');
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
 
   const agregarPelicula = (nuevaPelicula) => {
