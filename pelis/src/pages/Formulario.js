@@ -24,13 +24,11 @@ const handleInputChange = (e) => {
 const handleImagenChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-    // Validar que sea una imagen
     if (!file.type.startsWith('image/')) {
         alert('Por favor selecciona un archivo de imagen válido');
         return;
     }
     
-    // Convertir la imagen a Base64 para guardarla
     const reader = new FileReader();
     reader.onloadend = () => {
         setFormData({ ...formData, imagen: reader.result });
@@ -41,7 +39,6 @@ const handleImagenChange = (e) => {
 
 const eliminarImagen = () => {
     setFormData({ ...formData, imagen: '' });
-    // Limpiar el input file
     const fileInput = document.getElementById('imagen-input');
     if (fileInput) fileInput.value = '';
 };
